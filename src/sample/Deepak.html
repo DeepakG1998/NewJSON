@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<title>
+    Deepak</title>
+<body>
+<style>
+.Block{
+padding: 10px 20px;
+font-size: 18px;
+text-align: center;
+position: bottom;
+}
+</style>
+
+<textarea id="myTextarea" rows="30" cols="180">
+
+</textarea>
+
+<button class="Block" type="button" onclick="myFunction()">Save</button>
+
+<p id="demo"></p>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTextarea").value;
+  document.getElementById("demo").innerHTML = x;
+    var text = document.getElementById("myTextarea").value;
+    text = text.replace(/\n/g, "\r\n");
+    var blob = new Blob([text], { type: "text/plain"});
+    var anchor = document.createElement("a");
+    anchor.download = "my-filename.txt";
+    anchor.href = window.URL.createObjectURL(blob);
+    anchor.target ="_blank";
+    anchor.style.display = "none";
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+ }
+
+</script>
+
+
+</body>
+</html>
